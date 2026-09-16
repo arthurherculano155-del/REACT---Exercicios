@@ -1,0 +1,388 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(80, 0, 255, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 217, 255, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #03030a,
+            #080817 45%,
+            #020207
+        );
+
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 4rem 4rem;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+.Legal {
+    position: relative;
+
+    width: min(90vw, 68rem);
+
+    padding: 5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 2.4rem;
+
+    border-radius: 2.8rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 4rem 10rem rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 0 8rem rgba(91, 33, 255, 0.08);
+
+    overflow: hidden;
+
+    animation: aparecer .8s cubic-bezier(.2, .8, .2, 1);
+
+    &::before {
+        content: "";
+
+        position: absolute;
+
+        width: 30rem;
+        height: 30rem;
+
+        top: -17rem;
+        right: -12rem;
+
+        border-radius: 50%;
+
+        background: rgb(102, 0, 255);
+
+        filter: blur(90px);
+
+        opacity: .55;
+
+        animation: brilhoRoxo 5s ease-in-out infinite alternate;
+    }
+
+    &::after {
+        content: "";
+
+        position: absolute;
+
+        width: 28rem;
+        height: 28rem;
+
+        bottom: -18rem;
+        left: -12rem;
+
+        border-radius: 50%;
+
+        background: rgb(0, 217, 255);
+
+        filter: blur(95px);
+
+        opacity: .38;
+
+        animation: brilhoAzul 6s ease-in-out infinite alternate;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 2;
+
+        font-size: clamp(2.8rem, 5vw, 4.6rem);
+
+        font-weight: 800;
+
+        letter-spacing: -.1rem;
+
+        text-align: center;
+
+        background:
+            linear-gradient(
+                90deg,
+                #ffffff,
+                #b8b8ff,
+                #72eaff,
+                #ffffff
+            );
+
+        background-size: 200%;
+
+        background-clip: text;
+        -webkit-background-clip: text;
+
+        color: transparent;
+
+        animation: tituloBrilho 5s linear infinite;
+
+        text-shadow:
+            0 0 3rem rgba(97, 224, 255, 0.12);
+    }
+
+    input {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+
+        padding: 2rem 2.2rem;
+
+        border-radius: 1.6rem;
+
+        border:
+            1px solid rgba(255, 255, 255, 0.1);
+
+        outline: none;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(0, 0, 0, 0.42),
+                rgba(255, 255, 255, 0.025)
+            );
+
+        color: white;
+
+        font-size: 1.7rem;
+
+        letter-spacing: .04rem;
+
+        box-shadow:
+            inset 0 0 2rem rgba(0, 0, 0, 0.35);
+
+        transition:
+            transform .25s ease,
+            border-color .25s ease,
+            box-shadow .25s ease,
+            background .25s ease;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.28);
+        }
+
+        &:hover {
+            border-color: rgba(120, 214, 255, .35);
+        }
+
+        &:focus {
+            transform: translateY(-3px);
+
+            border-color: rgb(64, 220, 255);
+
+            background:
+                rgba(0, 0, 0, .55);
+
+            box-shadow:
+                0 0 0 .4rem rgba(0, 217, 255, .07),
+                0 0 3rem rgba(0, 217, 255, .17),
+                inset 0 0 2rem rgba(0, 0, 0, .4);
+        }
+    }
+
+    p {
+        position: relative;
+        z-index: 2;
+
+        padding: .9rem 1.8rem;
+
+        border-radius: 999px;
+
+        font-size: 1.5rem;
+
+        font-weight: 700;
+
+        letter-spacing: .08rem;
+
+        color: rgba(255, 255, 255, .78);
+
+        background:
+            rgba(255, 255, 255, .055);
+
+        border:
+            1px solid rgba(255, 255, 255, .08);
+
+        box-shadow:
+            inset 0 1px rgba(255, 255, 255, .07),
+            0 1rem 3rem rgba(0, 0, 0, .25);
+
+        backdrop-filter: blur(10px);
+
+        transition: .3s ease;
+    }
+
+    p:last-child {
+        color: #7efcff;
+
+        border-color:
+            rgba(0, 217, 255, .3);
+
+        background:
+            rgba(0, 217, 255, .08);
+
+        box-shadow:
+            0 0 2rem rgba(0, 217, 255, .15),
+            inset 0 1px rgba(255, 255, 255, .08);
+
+        animation: limite .9s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform:
+            translateY(4rem)
+            scale(.95);
+
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+@keyframes tituloBrilho {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 200%;
+    }
+}
+
+@keyframes brilhoRoxo {
+    from {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(-3rem, 4rem)
+            scale(1.2);
+    }
+}
+
+@keyframes brilhoAzul {
+    from {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(4rem, -3rem)
+            scale(1.25);
+    }
+}
+
+@keyframes limite {
+    from {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 1rem rgba(0, 217, 255, .15);
+    }
+
+    to {
+        transform: scale(1.04);
+
+        box-shadow:
+            0 0 3rem rgba(0, 217, 255, .4);
+    }
+}
+
+@media (max-width: 600px) {
+    .Legal {
+        width: 92vw;
+
+        padding: 3rem 2rem;
+
+        border-radius: 2rem;
+
+        gap: 2rem;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        input {
+            padding: 1.7rem;
+
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1.3rem;
+        }
+    }
+}
